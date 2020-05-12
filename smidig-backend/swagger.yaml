@@ -1,0 +1,77 @@
+---
+swagger: "2.0"
+info:
+  description: This is a description in how to use login and signup endpoints. This is necessary in order to get the JWT-token that is user in all request to the server. The JWT-token is used as an identifier to recognize an user.
+  version: "1.0"
+  title: Peer Authentication
+host: smidig-backend.herokuapp.com
+tags:
+- name: Authorization Service
+  description: Authorization Service
+paths:
+  /auth/login:
+    post:
+      tags:
+      - Authorization Service
+      summary: App doesn't have a token or a valid token available on device
+      description: If not a valid token present on phone user have to login with third party provider, Feide. Feide provide an access token which app send to this endpoint (/auth/login). App does check with Feide and gets an userId from Feide that server check if exist with a user in our DB. If user is present in server, server responds with a JWTtoken that app stores in storage and send with every request to server to identify itself
+      operationId: login
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer token. 'Authorization:' 'Bearer <insert access token here>'
+        required: true
+        type: string
+        format: guid
+      responses:
+        200:
+          description: OK
+          headers:
+            Authorization:
+              description: The JTW token to be used in requests to the Server.
+        400:
+          description: Bad request (Missing a required parameter or Bad request formats)
+        401:
+          description: Unauthorized (Feide token doesnt exist in Feide)
+        403:
+          description: Feide user doesnt exist in our system
+        500:
+          description: Something went wrong from Server side
+  /auth/sign-up:
+    post:
+      tags:
+      - Authorization Service
+      summary: Register new user
+      description: Register a new user. Must include a SignupForm model
+      operationId: signup
+      responses:
+        200:
+          description: OK
+          headers:
+            Authorization:
+              description: The JTW token to be used in future requests to the Server.
+        400:
+          description: Bad request (Missing a required parameter or Bad request formats)
+        401:
+          description: Unauthorized (Feide token doesnt exist in Feide)
+        403:
+          description: Feide user doesnt exist in our system
+        422:
+          description: Signup entity is not valid
+        500:
+          description: Something went wrong from Server side
+components:
+  schemas:
+    SignupForm:
+      type: object
+      properties:
+        feideAccessToken:
+          type: string
+        email:
+          type: string
+        school:
+          type: string
+        study:
+          type: string
+        username:
+          type: string

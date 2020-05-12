@@ -1,0 +1,23 @@
+jsf:
+  projectStage: Production
+
+# Note: no need to specify URL of database, as Heroku will
+# automatically set environmental variables used by Spring
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+security:
+  sessions: ALWAYS
+
+server:
+  port: ${PORT:8080}

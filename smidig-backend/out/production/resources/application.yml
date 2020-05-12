@@ -1,0 +1,28 @@
+# Note: no need to specify URL of database, as Heroku will
+# automatically set environmental variables used by Spring
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smidig
+    driver-class-name: "org.postgresql.Driver"
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        naming-strategy=org:
+          hibernate:
+            cfg:
+              ImprovedNamingStrategy:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+security:
+  sessions: ALWAYS
+
+server:
+  port: ${PORT:8080}
