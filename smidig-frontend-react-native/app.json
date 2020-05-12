@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Peer",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/loading.gif",
+      "resizeMode": "contain",
+      "backgroundColor": "#f8f8f8"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "no.smidig.peer"
+    },
+    "description": "",
+    "slug": "peer",
+    "scheme": "peer"
+  }
+}

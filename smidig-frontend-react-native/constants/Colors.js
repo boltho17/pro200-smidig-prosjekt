@@ -1,0 +1,28 @@
+
+
+export const colors = {
+  tintColor: '#2f95dc',
+  tabIconDefault: '#ccc',
+  tabIconSelected: '#2f95dc',
+  tabBar: '#fefefe',
+  errorBackground: 'red',
+  errorText: '#fff',
+  warningBackground: '#EAEB5E',
+  warningText: '#666804',
+  noticeBackground: '#2f95dc',
+  noticeText: '#fff',
+  lightGray: '#f8f8f8',
+  mediumGray: '#E0E0E0',
+  darkGray: '#B0B0B0',
+  darkerGray: '#202020',
+  mainOrange: '#EE801E',
+  gradientLeft: '#FBC586',
+  gradientRight: '#F5847D',
+  fabLeft: '#FEA650',
+  fabRight: '#F56D43',
+  disabledGradientLeft: '#FFEDD8',
+  disabledGradientRight: '#FFD5D3',
+  lightGrayTransparent: '#f8f8f8AA',
+  transparent: '#f8f8f801',
+  darkerGrayTransparent: '#202020AA',
+};
